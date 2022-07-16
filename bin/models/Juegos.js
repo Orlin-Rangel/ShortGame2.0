@@ -4,19 +4,23 @@ const Schema = mongoose.Schema;
 
 // un esquema es la estructura de datos de nuestra colección, defineas  los tipos de datos
 //y sus relaciones
-const equiposSchema = new Schema({
+const juegosSchema = new Schema({
   nombre:String,
-  val_equipo:Number,
-  usuarios:{
+  materia:String,
+  tema:String,
+  grado:Number,
+  val_juegos:{
     type:Schema.Types.ObjectId,
-    ref:"Usuarios"
+    ref:"Valjuegos"
   },
-  juego:{
+  puntaje:{
     type:Schema.Types.ObjectId,
-    ref:"Juegos"
+    ref:"Puntajes"
+  },
+   equipos:{
+    type:Schema.Types.ObjectId,
+    ref:"Equipos"
   }
 });
-
- // exportamo al modelo
- var Equipos=mongoose.model("Equipos",equiposSchema);
- module.exports = Equipos;
+ // exportamos al modelo
+ var Juegos=mongoose.model("Juegos",juegosSchema); module.exports = Juegos
